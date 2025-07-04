@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour de France 2025 - Timetable</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="fixed-header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1>Tour de France 2025</h1>
+                    <span class="subtitle">July 5th - 27th</span>
+                </div>
+                
+                <div class="controls-row">
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-color flat"></span>
+                            <span>Flat</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color time-trial"></span>
+                            <span>Time trial</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color mountain"></span>
+                            <span>Mountain</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color hilly"></span>
+                            <span>Hilly</span>
+                        </div>
+                    </div>
+
+                    <div class="timezone-section">
+                        <span class="timezone-current" id="timezone-current">CEST (UTC+2)</span>
+                        <button class="timezone-toggle" id="timezone-toggle">Change Timezone</button>
+                    </div>
+                </div>
+
+                <div class="timezone-controls" id="timezone-controls">
+                    <div class="control-group">
+                        <label for="date-format-select">Date Format:</label>
+                        <select id="date-format-select">
+                            <option value="wmd">Weekday, Month Day</option>
+                            <option value="wd">Day Weekday</option>
+                            <option value="md">Month Day</option>
+                            <option value="iso">YYYY-MM-DD</option>
+                            <option value="dmy">DD/MM/YYYY</option>
+                            <option value="mdy">MM/DD/YYYY</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="timezone-select">Timezone:</label>
+                        <select id="timezone-select">
+                            <optgroup label="Europe">
+                                <option value="Europe/Paris">CEST - Paris (UTC+2)</option>
+                                <option value="Europe/London">BST - London (UTC+1)</option>
+                                <option value="Europe/Berlin">CEST - Berlin (UTC+2)</option>
+                                <option value="Europe/Rome">CEST - Rome (UTC+2)</option>
+                                <option value="Europe/Madrid">CEST - Madrid (UTC+2)</option>
+                                <option value="Europe/Amsterdam">CEST - Amsterdam (UTC+2)</option>
+                                <option value="Europe/Moscow">MSK - Moscow (UTC+3)</option>
+                                <option value="Europe/Istanbul">TRT - Istanbul (UTC+3)</option>
+                            </optgroup>
+                            <optgroup label="North America">
+                                <option value="America/Los_Angeles">PDT - Los Angeles (UTC-7)</option>
+                                <option value="America/Denver">MDT - Denver (UTC-6)</option>
+                                <option value="America/Chicago">CDT - Chicago (UTC-5)</option>
+                                <option value="America/New_York">EDT - New York (UTC-4)</option>
+                                <option value="America/Toronto">EDT - Toronto (UTC-4)</option>
+                                <option value="America/Vancouver">PDT - Vancouver (UTC-7)</option>
+                                <option value="America/Mexico_City">CST - Mexico City (UTC-6)</option>
+                                <option value="America/Halifax">ADT - Halifax (UTC-3)</option>
+                                <option value="America/St_Johns">NDT - St. John's (UTC-2.5)</option>
+                            </optgroup>
+                            <optgroup label="South America">
+                                <option value="America/Sao_Paulo">BRT - São Paulo (UTC-3)</option>
+                                <option value="America/Argentina/Buenos_Aires">ART - Buenos Aires (UTC-3)</option>
+                                <option value="America/Santiago">CLT - Santiago (UTC-3)</option>
+                            </optgroup>
+                            <optgroup label="Asia">
+                                <option value="Asia/Seoul">KST - Seoul (UTC+9)</option>
+                                <option value="Asia/Tokyo">JST - Tokyo (UTC+9)</option>
+                                <option value="Asia/Shanghai">CST - Shanghai (UTC+8)</option>
+                                <option value="Asia/Hong_Kong">HKT - Hong Kong (UTC+8)</option>
+                                <option value="Asia/Singapore">SGT - Singapore (UTC+8)</option>
+                                <option value="Asia/Bangkok">ICT - Bangkok (UTC+7)</option>
+                                <option value="Asia/Jakarta">WIB - Jakarta (UTC+7)</option>
+                                <option value="Asia/Dhaka">BST - Dhaka (UTC+6)</option>
+                                <option value="Asia/Kolkata">IST - Mumbai (UTC+5.5)</option>
+                                <option value="Asia/Karachi">PKT - Karachi (UTC+5)</option>
+                                <option value="Asia/Dubai">GST - Dubai (UTC+4)</option>
+                                <option value="Asia/Tehran">IRST - Tehran (UTC+3.5)</option>
+                                <option value="Asia/Riyadh">AST - Riyadh (UTC+3)</option>
+                            </optgroup>
+                            <optgroup label="Australia & Oceania">
+                                <option value="Australia/Sydney">AEST - Sydney (UTC+10)</option>
+                                <option value="Australia/Melbourne">AEST - Melbourne (UTC+10)</option>
+                                <option value="Australia/Brisbane">AEST - Brisbane (UTC+10)</option>
+                                <option value="Australia/Adelaide">ACST - Adelaide (UTC+9.5)</option>
+                                <option value="Australia/Perth">AWST - Perth (UTC+8)</option>
+                                <option value="Pacific/Auckland">NZST - Auckland (UTC+12)</option>
+                                <option value="Pacific/Fiji">FJT - Fiji (UTC+12)</option>
+                                <option value="Pacific/Honolulu">HST - Honolulu (UTC-10)</option>
+                            </optgroup>
+                            <optgroup label="Africa & Middle East">
+                                <option value="Africa/Cairo">EET - Cairo (UTC+2)</option>
+                                <option value="Africa/Johannesburg">SAST - Johannesburg (UTC+2)</option>
+                                <option value="Africa/Lagos">WAT - Lagos (UTC+1)</option>
+                                <option value="Africa/Casablanca">WET - Casablanca (UTC+0)</option>
+                            </optgroup>
+                            <optgroup label="UTC">
+                                <option value="UTC">UTC - Coordinated Universal Time (UTC+0)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <button id="local-time-btn" class="btn">Use My Local Time</button>
+                    <button id="reset-cest-btn" class="btn">Reset to CEST</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="table-container">
+                <table id="timetable">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>50 km to go</th>
+                            <th>Finish time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Table rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-note">
+                <p><strong>INFORMATION:</strong> THE TIMES PROVIDED ARE BASED ON THE FASTEST ESTIMATES FROM THE TDF TIMETABLE. RIDERS MAY GO SLOWER AND IT ALSO WOULD NOT BE SURPRISING IF SOME STAGES ARE COMPLETED EVEN FASTER.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

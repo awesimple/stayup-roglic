@@ -110,4 +110,3 @@ The timetable data is based on the official Tour de France 2025 schedule. Times 
 ---
 
 **Note**: The times provided are based on the fastest estimates from the TDF timetable. Riders may go slower and it also would not be surprising if some stages are completed even faster.
-# stayup-roglic
