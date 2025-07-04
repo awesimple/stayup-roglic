@@ -1,6 +1,7 @@
 # Tour de France 2025 - Interactive Timetable
 
 An interactive web application displaying the Tour de France 2025 timetable with timezone conversion functionality.
+Courtesy of @Cyclingyazz https://www.reddit.com/r/tourdefrance/comments/1lq3byu/tour_de_france_timetable/
 
 ## Features
 
