@@ -256,10 +256,6 @@ tr:hover {
     background-color: #fff9e6;
 }
 
-.proximity-highlight {
-    background-color: #f4f8ff;
-}
-
 .selected-row, .selected-row:hover {
     background-color: #e2eff9;
 }

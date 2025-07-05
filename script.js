@@ -302,22 +302,23 @@ function formatDate(dateString) {
 function renderTable() {
     tableBody.innerHTML = '';
     const now = new Date();
-    const today = now.toISOString().split('T')[0];
+
+    // Get today's date in the event's local timezone (CEST) directly
+    const options = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        timeZone: 'Europe/Paris'
+    };
+    // Using 'en-CA' locale to ensure YYYY-MM-DD format
+    const todayInCest = new Intl.DateTimeFormat('en-CA', options).format(now);
 
     timetableData.forEach(stage => {
         const row = document.createElement('tr');
 
-        // Highlight today's row
-        if (stage.date === today) {
+        // Highlight today's row based on CEST local date
+        if (stage.date === todayInCest) {
             row.classList.add('today-row');
-        }
-
-        // Proximity highlight
-        const startTime = new Date(`${stage.date}T${stage.startTime}:00`);
-        const finishTime = new Date(`${stage.date}T${stage.finishTime}:00`);
-        const diffHours = (startTime - now) / (1000 * 60 * 60);
-        if (diffHours > 0 && diffHours <= 1) {
-            row.classList.add('proximity-highlight');
         }
 
         // Row click listener for selection
